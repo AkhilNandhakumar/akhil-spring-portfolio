@@ -21,6 +21,22 @@ public class APCalendar {
         }
 
         }
+
+        /** Returns the number of leap years between year1 and year2, inclusive.
+     * Precondition: 0 <= year1 <= year2
+    */ 
+    
+    public static int numberOfLeapYears(int year1, int year2) {
+       
+        int numOfLeapYears = 0; // initialize final count variable
+        for(int i = year1; i <= year2; i++){ // for loop that starts at the year1 number and goes until year 2 including it
+            if(isLeapYear(i)){  // if the year is a leap year, add 1 to the count
+                numOfLeapYears += 1;
+            }
+        }
+        return numOfLeapYears; // return the count
+
+        }
         
     /** Returns the value representing the day of the week 
      * 0 denotes Sunday, 
@@ -42,25 +58,15 @@ public class APCalendar {
      * dayOfYear(3, 1, 2016) returns 61, since 2016 is a leap year. 
     */ 
     private static int dayOfYear(int month, int day, int year) {
-        // implementation not shown
-
-        return 1;
-        }
-
-    /** Returns the number of leap years between year1 and year2, inclusive.
-     * Precondition: 0 <= year1 <= year2
-    */ 
-    public static int numberOfLeapYears(int year1, int year2) {
-       
-        int numOfLeapYears = 0; // initialize final count variable
-        for(int i = year1; i <= year2; i++){ // for loop that starts at the year1 number and goes until year 2 including it
-            if(isLeapYear(i)){  // if the year is a leap year, add 1 to the count
-                numOfLeapYears += 1;
-            }
-        }
-        return numOfLeapYears; // return the count
         
-        }
+        int startDay = firstDayOfYear(year);
+        int selectedDay = dayOfYear(month, day, year);
+        int returnDay = (startDay + selectedDay - 1) % 7;
+        return returnDay;
+       
+    }
+
+    
 
     /** Returns the value representing the day of the week for the given date
      * Precondition: The date represented by month, day, year is a valid date.
