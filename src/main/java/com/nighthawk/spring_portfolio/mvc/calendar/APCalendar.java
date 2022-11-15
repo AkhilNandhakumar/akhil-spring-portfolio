@@ -51,9 +51,15 @@ public class APCalendar {
      * Precondition: 0 <= year1 <= year2
     */ 
     public static int numberOfLeapYears(int year1, int year2) {
-         // to be implemented in part (a)
-
-        return 0;
+       
+        int numOfLeapYears = 0; // initialize final count variable
+        for(int i = year1; i <= year2; i++){ // for loop that starts at the year1 number and goes until year 2 including it
+            if(isLeapYear(i)){  // if the year is a leap year, add 1 to the count
+                numOfLeapYears += 1;
+            }
+        }
+        return numOfLeapYears; // return the count
+        
         }
 
     /** Returns the value representing the day of the week for the given date
@@ -75,7 +81,11 @@ public class APCalendar {
         System.out.println("isLeapYear 2022: " + APCalendar.isLeapYear(2022));
         System.out.println("isLeapYear 2000: " + APCalendar.isLeapYear(2000));
         System.out.println("isLeapYear 3000: " + APCalendar.isLeapYear(3000));
+
+
         System.out.println("numberOfLeapYears: " + APCalendar.numberOfLeapYears(2000, 2022));
+
+
         System.out.println("dayOfWeek: " + APCalendar.dayOfWeek(1, 1, 2022));
     }
 
