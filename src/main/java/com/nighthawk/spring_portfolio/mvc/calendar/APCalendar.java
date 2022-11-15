@@ -58,13 +58,10 @@ public class APCalendar {
      * dayOfYear(3, 1, 2016) returns 61, since 2016 is a leap year. 
     */ 
     private static int dayOfYear(int month, int day, int year) {
-        
-        int startDay = firstDayOfYear(year);
-        int selectedDay = dayOfYear(month, day, year);
-        int returnDay = (startDay + selectedDay - 1) % 7;
-        return returnDay;
-       
-    }
+        // implementation not shown
+
+        return 1;
+        }
 
     
 
@@ -72,8 +69,12 @@ public class APCalendar {
      * Precondition: The date represented by month, day, year is a valid date.
     */
     public static int dayOfWeek(int month, int day, int year) { 
-        // to be implemented in part (b)
-        return 0;
+      
+        int startDay = firstDayOfYear(year);
+        int selectedDay = dayOfYear(month, day, year);
+        int returnDay = (startDay + selectedDay - 1) % 7;
+        return returnDay;
+        
         }
 
     /** Tester method */
