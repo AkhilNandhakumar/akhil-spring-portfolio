@@ -9,9 +9,17 @@ public class APCalendar {
      * isLeapYear(2016) returns True
      */          
     public static boolean isLeapYear(int year) {
-        // implementation not shown
 
-        return false;
+        if ( (year % 4 == 0) && (year % 100 != 0)){
+            return true;
+        }
+        else if ( year % 400 == 0 ){
+            return true;
+        }
+        else {
+            return false;
+        }
+
         }
         
     /** Returns the value representing the day of the week 
@@ -63,7 +71,10 @@ public class APCalendar {
         System.out.println("dayOfYear: " + APCalendar.dayOfYear(1, 1, 2022));
 
         // Public access modifiers
-        System.out.println("isLeapYear: " + APCalendar.isLeapYear(2022));
+        System.out.println("Testing isLeapYear:");
+        System.out.println("isLeapYear 2022: " + APCalendar.isLeapYear(2022));
+        System.out.println("isLeapYear 2000: " + APCalendar.isLeapYear(2000));
+        System.out.println("isLeapYear 3000: " + APCalendar.isLeapYear(3000));
         System.out.println("numberOfLeapYears: " + APCalendar.numberOfLeapYears(2000, 2022));
         System.out.println("dayOfWeek: " + APCalendar.dayOfWeek(1, 1, 2022));
     }
