@@ -8,7 +8,6 @@ package com.nighthawk.spring_portfolio.mvc.calendar;
 class Year {
    private int year;
    private boolean isLeapYear;
-   private int numberOfLeapYears;
    private int firstDayOfYear;
 
    // zero argument constructor
