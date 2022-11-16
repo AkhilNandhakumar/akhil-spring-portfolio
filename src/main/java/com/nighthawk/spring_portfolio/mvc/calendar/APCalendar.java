@@ -45,9 +45,9 @@ public class APCalendar {
      * firstDayOfYear(2019) returns 2 for Tuesday.
     */
     private static int firstDayOfYear(int year) {
-        // implementation not shown
 
-        return 0;
+        return (int) Math.floor( Math.random() * 7 );
+
         }
 
 
@@ -59,8 +59,9 @@ public class APCalendar {
     */ 
     private static int dayOfYear(int month, int day, int year) {
         // implementation not shown
-
-        return 1;
+        
+        return (int) (Math.random() * (366 - 1)) + 1;
+    
         }
 
     
