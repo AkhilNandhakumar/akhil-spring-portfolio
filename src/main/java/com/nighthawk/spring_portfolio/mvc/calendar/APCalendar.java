@@ -80,21 +80,23 @@ public class APCalendar {
 
     /** Tester method */
     public static void main(String[] args) {
+       
         // Private access modifiers
-        System.out.println("firstDayOfYear: " + APCalendar.firstDayOfYear(2022));
-        System.out.println("dayOfYear: " + APCalendar.dayOfYear(1, 1, 2022));
+        System.out.println("\n \n firstDayOfYear: " + APCalendar.firstDayOfYear(2022));
+
+        System.out.println("\n dayOfYear: " + APCalendar.dayOfYear(1, 1, 2022));
 
         // Public access modifiers
-        System.out.println("Testing isLeapYear:");
-        System.out.println("isLeapYear 2022: " + APCalendar.isLeapYear(2022));
-        System.out.println("isLeapYear 2000: " + APCalendar.isLeapYear(2000));
-        System.out.println("isLeapYear 3000: " + APCalendar.isLeapYear(3000));
+        System.out.println("\n Testing isLeapYear:");
+
+        System.out.println("\n isLeapYear 2022: " + APCalendar.isLeapYear(2022));
+        System.out.println("\n isLeapYear 2000: " + APCalendar.isLeapYear(2000));
+        System.out.println("\n isLeapYear 3000: " + APCalendar.isLeapYear(3000));
 
 
-        System.out.println("numberOfLeapYears: " + APCalendar.numberOfLeapYears(2000, 2022));
+        System.out.println("\n numberOfLeapYears: " + APCalendar.numberOfLeapYears(2000, 2022));
 
-
-        System.out.println("dayOfWeek: " + APCalendar.dayOfWeek(1, 1, 2022));
+        System.out.println("\n dayOfWeek: " + APCalendar.dayOfWeek(1, 1, 2022));
     }
 
 }
