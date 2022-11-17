@@ -10,6 +10,7 @@ class Year {
    private boolean isLeapYear;
    private int firstDayOfYear;
    private int numberOfLeapYears;
+   private int dayOfYear;
 
    // zero argument constructor
    public Year() {} 
@@ -59,6 +60,18 @@ class Year {
 
    public String numberOfLeapYearsToString(){
       return ( "{ \"numberOfLeapYears\": "  + this.numberOfLeapYears + " }" );
+   }	
+
+   /* dayOfYear getter/setters */
+   public int dayOfYear(int month, int day, int year) {
+      return APCalendar.dayOfYear(month, day, year);
+   }
+   public void setDayOfYear(int month, int day, int year) {  // this is private to avoid tampering
+      this.dayOfYear = APCalendar.dayOfYear(month, day, year);
+   }
+
+   public String dayOfYearToString(){
+      return ( "{ \"dayOfYear\": "  + this.dayOfYear + " }" );
    }	
    
    /* standard toString placeholder until class is extended */
