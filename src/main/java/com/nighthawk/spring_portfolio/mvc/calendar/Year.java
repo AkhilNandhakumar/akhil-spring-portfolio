@@ -52,7 +52,7 @@ class Year {
    }	
 
    /* numberOfLeapYears getter/setters */
-   public int numberOfLeapYears(int year1, int year2) {
+   public int getNumberOfLeapYears(int year1, int year2) {
       return APCalendar.numberOfLeapYears(year1, year2);
    }
    public void setNumberOfLeapYears(int year1, int year2) {  // this is private to avoid tampering
