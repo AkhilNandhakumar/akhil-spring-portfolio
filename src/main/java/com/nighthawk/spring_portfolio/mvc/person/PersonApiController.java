@@ -55,6 +55,18 @@ public class PersonApiController {
         return "Error - Bad ID";       
     }
 
+    @GetMapping("/getAge/{id}")
+    public String getAge(@PathVariable long id) {
+        Optional<Person> optional = repository.findById(id);
+        if (optional.isPresent()) {  // Good ID
+            Person person = optional.get();  // value from findByID
+            String ageToString = person.getAgeToString();
+            return ageToString;
+        }
+        // Bad ID
+        return "Error - Bad ID";       
+    }
+
     /*
     DELETE individual Person using ID
      */

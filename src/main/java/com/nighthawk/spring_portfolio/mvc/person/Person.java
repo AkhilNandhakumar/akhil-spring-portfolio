@@ -107,6 +107,10 @@ public class Person {
         return -1;
     }
 
+    public String getAgeToString(){
+        return ("{ \"name\": " + this.name + " ," + "\"age\": " + this.getAge() + " }" );
+    }
+
     public int getBmi(){
         int bmi = (int) ( 703 * this.weight / Math.pow(this.height, 2) );
         return bmi;
