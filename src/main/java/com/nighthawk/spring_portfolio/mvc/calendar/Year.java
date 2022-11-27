@@ -29,7 +29,7 @@ class Year {
    public boolean getIsLeapYear(int year) {
       return APCalendar.isLeapYear(year);
    }
-   private void setIsLeapYear(int year) {  // this is private to avoid tampering
+   private void setIsLeapYear(int year) { 
       this.isLeapYear = APCalendar.isLeapYear(year);
    }
 
@@ -43,7 +43,7 @@ class Year {
    public int getFirstDayOfYear(int year) {
       return APCalendar.firstDayOfYear(year);
    }
-   public void setFirstDayOfYear(int year) {  // this is private to avoid tampering
+   public void setFirstDayOfYear(int year) {  
       this.firstDayOfYear = APCalendar.firstDayOfYear(year);
    }
 
@@ -55,7 +55,7 @@ class Year {
    public int getNumberOfLeapYears(int year1, int year2) {
       return APCalendar.numberOfLeapYears(year1, year2);
    }
-   public void setNumberOfLeapYears(int year1, int year2) {  // this is private to avoid tampering
+   public void setNumberOfLeapYears(int year1, int year2) {  
       this.numberOfLeapYears = APCalendar.numberOfLeapYears(year1, year2);
    }
 
@@ -67,7 +67,7 @@ class Year {
    public int dayOfYear(int month, int day, int year) {
       return APCalendar.dayOfYear(month, day, year);
    }
-   public void setDayOfYear(int month, int day, int year) {  // this is private to avoid tampering
+   public void setDayOfYear(int month, int day, int year) { 
       this.dayOfYear = APCalendar.dayOfYear(month, day, year);
    }
 
@@ -79,7 +79,7 @@ class Year {
    public int dayOfWeek(int month, int day, int year) {
       return APCalendar.dayOfWeek(month, day, year);
    }
-   public void setDayOfWeek(int month, int day, int year) {  // this is private to avoid tampering
+   public void setDayOfWeek(int month, int day, int year) {  
       this.dayOfWeek = APCalendar.dayOfWeek(month, day, year);
    }
 
