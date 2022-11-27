@@ -43,6 +43,18 @@ public class PersonApiController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);       
     }
 
+    @GetMapping("/getBmi/{id}")
+    public String getBmi(@PathVariable long id) {
+        Optional<Person> optional = repository.findById(id);
+        if (optional.isPresent()) {  // Good ID
+            Person person = optional.get();  // value from findByID
+            String bmiToString = person.getBmiToString();
+            return bmiToString;
+        }
+        // Bad ID
+        return "Error - Bad ID";       
+    }
+
     /*
     DELETE individual Person using ID
      */
