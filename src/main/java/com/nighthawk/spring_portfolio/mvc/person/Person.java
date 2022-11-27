@@ -108,6 +108,11 @@ public class Person {
         return -1;
     }
 
+    public int getBmi() {
+        int bmi = (int) (703 * this.weight / Math.pow((this.height), 2) );
+        return bmi;
+    }
+    
     public static void main(String[] args) throws ParseException{
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
