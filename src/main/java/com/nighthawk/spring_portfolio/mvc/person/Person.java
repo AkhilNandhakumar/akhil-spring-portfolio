@@ -1,5 +1,7 @@
 package com.nighthawk.spring_portfolio.mvc.person;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
@@ -86,12 +88,28 @@ public class Person {
         this.dob = dob;
     }
 
+    public String toString(){
+        return ("{ \"email\": " + this.email + ", " + "\"password\": " + this.password + ", " + "\"name\": " + this.name + ", " + "\"dob\": " + this.dob + " }" );
+    }
+
     // A custom getter to return age from dob attribute
     public int getAge() {
         if (this.dob != null) {
             LocalDate birthDay = this.dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             return Period.between(birthDay, LocalDate.now()).getYears(); }
         return -1;
+    }
+
+    public static void main(String[] args) throws ParseException{
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date myDate = sdf.parse("2004-11-01");
+
+        Person allArgsPerson = new Person("akhil@nandhakumar.net", "12345", "Akhil Nandhakumar", myDate );
+        Person noArgsPerson = new Person();
+
+        System.out.println(noArgsPerson);
+        System.out.println(allArgsPerson);
     }
 
 }
