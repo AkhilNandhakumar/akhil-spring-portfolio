@@ -65,13 +65,12 @@ public class Person {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
-
-    @NotEmpty
+    
+    @Column(unique=false)
     private int height;
 
-    @NotEmpty
+    @Column(unique=false)
     private int weight;
-    
 
     /* HashMap is used to store JSON for daily "stats"
     "stats": {
@@ -83,7 +82,7 @@ public class Person {
     */
     @Type(type="json")
     @Column(columnDefinition = "jsonb")
-    private Map<String,Map<String, Object>> stats = new HashMap<>();
+    private Map<String,Map<String, Object>> stats = new HashMap<>(); 
     
 
     // Constructor used when building object from an API
@@ -97,7 +96,7 @@ public class Person {
     }
 
     public String toString(){
-        return ("{ \"email\": " + this.email + ", " + "\"password\": " + this.password + ", " + "\"name\": " + this.name + ", " + "\"dob\": " + this.dob + "\"height\": " + this.height + "\"weight\": " + this.weight + " }" );
+        return ("{ \"email\": " + this.email + ", " + "\"password\": " + this.password + ", " + "\"name\": " + this.name + ", " + "\"dob\": " + this.dob + " }" );
     }
 
     // A custom getter to return age from dob attribute
@@ -108,19 +107,12 @@ public class Person {
         return -1;
     }
 
-    public int getBmi() {
-        int bmi = (int) (703 * this.weight / Math.pow((this.height), 2) );
-        return bmi;
-    }
-    
     public static void main(String[] args) throws ParseException{
-
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date myDate = sdf.parse("2004-11-01");
 
-        Person allArgsPerson = new Person("akhil@nandhakumar.net", "12345", "Akhil Nandhakumar", myDate, 68, 130 );
+        Person allArgsPerson = new Person("akhil@nandhakumar.net", "12345", "Akhil Nandhakumar", myDate, 67, 130 );
         Person noArgsPerson = new Person();
-
         System.out.println(noArgsPerson);
         System.out.println(allArgsPerson);
     }
