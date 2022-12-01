@@ -24,6 +24,7 @@ public class Calculator {
     private final Map<String, Integer> OPERATORS = new HashMap<>();
     {
         // Map<"token", precedence>
+        OPERATORS.put("^", 2);
         OPERATORS.put("*", 3);
         OPERATORS.put("/", 3);
         OPERATORS.put("%", 3);
@@ -127,6 +128,7 @@ public class Calculator {
                     }
                     tokenStack.pop();
                     break;
+                case "^":
                 case "+":
                 case "-":
                 case "*":
@@ -170,15 +172,15 @@ public class Calculator {
             if (isOperator(token))
             {
                 // Pop the two top entries
-                double intermediate1 = calcStack.pop();
                 double intermediate2 = calcStack.pop();
+                double intermediate1 = calcStack.pop();
 
                 if (token.equals("+")){
                     result = (intermediate1 + intermediate2);
                 }
 
                 if (token.equals("-")){
-                    result = (intermediate2 - intermediate1);
+                    result = (intermediate1 - intermediate2);
                 }
 
                 if (token.equals("*")){
@@ -186,11 +188,15 @@ public class Calculator {
                 }
 
                 if (token.equals("/")){
-                    result = (intermediate2 / intermediate1);
+                    result = (intermediate1 / intermediate2);
                 }
 
                 if (token.equals("%")){
-                    result = (intermediate2 % intermediate1);
+                    result = (intermediate1 % intermediate2);
+                }
+
+                if (token.equals("^")){
+                    result = (Math.pow(intermediate1, intermediate2));
                 }
                 // Calculate intermediate results
                 
@@ -241,6 +247,11 @@ public class Calculator {
 
         Calculator divisionMath = new Calculator("300/200");
         System.out.println("Division Math\n" + divisionMath);
+
+        System.out.println();
+
+        Calculator powerMath = new Calculator("( 2^4 ) + (3 ^ 2 )");
+        System.out.println("Power Math\n" + powerMath);
 
     }
 }
