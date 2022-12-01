@@ -52,8 +52,39 @@ public class Calculator {
         // place terms into reverse polish notation
         this.tokensToReversePolishNotation();
 
+        if (isParenthesisBalanced()){
+            this.rpnToResult();
+        }
         // calculate reverse polish notation
-        this.rpnToResult();
+        else{
+            System.out.println("Error.");
+        }
+    }
+
+    private boolean isParenthesisBalanced() {
+        
+        int openCount = 0;
+        int closedCount = 0;
+
+        for (String c : this.reverse_polish) {
+           
+            if (c.equals("(")){
+                openCount = openCount + 1;
+            }
+
+            if (c.equals(")")){
+                closedCount = closedCount + 1;
+            }
+            
+        }
+
+        if (openCount == closedCount){
+            return true;
+        }
+
+        else{
+            return false;
+        }
     }
 
     // Test if token is an operator
@@ -216,10 +247,18 @@ public class Calculator {
 
     // Print the expression, terms, and result
     public String toString() {
-        return ("Original expression: " + this.expression + "\n" +
-                "Tokenized expression: " + this.tokens.toString() + "\n" +
-                "Reverse Polish Notation: " +this.reverse_polish.toString() + "\n" +
-                "Final result: " + String.format("%.2f", this.result));
+
+        if (isParenthesisBalanced()){
+            return ("Original expression: " + this.expression + "\n" +
+            "Tokenized expression: " + this.tokens.toString() + "\n" +
+            "Reverse Polish Notation: " +this.reverse_polish.toString() + "\n" +
+            "Final result: " + String.format("%.2f", this.result));
+        }
+
+       else{
+        return ("Unbalanced Parenthesis, Fix Input.");
+       }
+
     }
 
     // Tester method
@@ -252,6 +291,11 @@ public class Calculator {
 
         Calculator powerMath = new Calculator("( 2^4 ) + (3 ^ 2 )");
         System.out.println("Power Math\n" + powerMath);
+
+        System.out.println();
+
+        Calculator balancedCheck = new Calculator("( 2^4 ) + (3 ^ 2(");
+        System.out.println("Balanced Check\n" + balancedCheck);
 
     }
 }
