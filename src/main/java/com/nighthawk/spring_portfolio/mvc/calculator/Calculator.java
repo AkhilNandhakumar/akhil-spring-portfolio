@@ -178,7 +178,7 @@ public class Calculator {
                 }
 
                 if (token.equals("-")){
-                    result = (intermediate1 - intermediate2);
+                    result = (intermediate2 - intermediate1);
                 }
 
                 if (token.equals("*")){
@@ -186,7 +186,11 @@ public class Calculator {
                 }
 
                 if (token.equals("/")){
-                    result = (intermediate1 / intermediate2);
+                    result = (intermediate2 / intermediate1);
+                }
+
+                if (token.equals("%")){
+                    result = (intermediate2 % intermediate1);
                 }
                 // Calculate intermediate results
                 
