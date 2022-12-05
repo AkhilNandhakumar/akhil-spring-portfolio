@@ -25,6 +25,7 @@ public class Calculator {
     {
         // Map<"token", precedence>
         OPERATORS.put("^", 2);
+        OPERATORS.put("r", 2);
         OPERATORS.put("*", 3);
         OPERATORS.put("/", 3);
         OPERATORS.put("%", 3);
@@ -160,6 +161,7 @@ public class Calculator {
                     tokenStack.pop();
                     break;
                 case "^":
+                case "r":
                 case "+":
                 case "-":
                 case "*":
@@ -229,6 +231,10 @@ public class Calculator {
                 if (token.equals("^")){
                     result = (Math.pow(intermediate1, intermediate2));
                 }
+
+                if (token.equals("r")){
+                    result = (Math.pow(intermediate1, 1/ intermediate2));
+                }
                 // Calculate intermediate results
                 
 
@@ -296,6 +302,11 @@ public class Calculator {
 
         Calculator balancedCheck = new Calculator("( 2^4 ) + (3 ^ 2(");
         System.out.println("Balanced Check\n" + balancedCheck);
+
+        System.out.println();
+
+        Calculator rootCheck = new Calculator("9r2 + 64r2");
+        System.out.println("Root Check\n" + rootCheck);
 
     }
 }
