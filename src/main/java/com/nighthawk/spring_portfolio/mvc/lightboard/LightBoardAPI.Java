@@ -40,5 +40,15 @@ public class LightBoardAPI {
 
         return ResponseEntity.ok(json);
     }
+
+    @PostMapping("/allOff")
+    public ResponseEntity<JsonNode> allOff() throws JsonMappingException, JsonProcessingException {
+        lightBoard.allOff();
+
+        ObjectMapper mapper = new ObjectMapper(); 
+        json = mapper.readTree(lightBoard.toString()); 
+
+        return ResponseEntity.ok(json);
+    }
     
 }
